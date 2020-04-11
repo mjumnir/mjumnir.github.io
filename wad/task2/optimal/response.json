@@ -1,0 +1,43 @@
+{
+    "timezone": 10800,
+    "cod": 200,
+    "sys": {
+        "country": "RU",
+        "id": 8926,
+        "sunrise": 1586573601,
+        "sunset": 1586624764,
+        "type": 1
+    },
+    "clouds": {
+        "all": 20
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "icon": "02d",
+            "description": "few clouds"
+        }
+    ],
+    "id": 498817,
+    "wind": {
+        "deg": 320,
+        "speed": 5
+    },
+    "dt": 1586618423,
+    "coord": {
+        "lon": 30.26,
+        "lat": 59.89
+    },
+    "base": "stations",
+    "visibility": 10000,
+    "main": {
+        "feels_like": 270.76,
+        "temp_min": 274.82,
+        "humidity": 60,
+        "temp_max": 278.15,
+        "temp": 276.7,
+        "pressure": 1020
+    },
+    "name": "Saint Petersburg"
+}

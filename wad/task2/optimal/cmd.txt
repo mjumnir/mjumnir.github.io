@@ -13,20 +13,14 @@ heroku logs --tail
 - Requirement.txt creation
 pip freeze > requirements.txt
 
-- Flask routes
-https://hackersandslackers.com/flask-routes/
-
-- Favicon Documentation
-https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/
-
-- Favicon maker
-https://www.favicon.cc/
+- Credit UI
+https://codepen.io/supah/pen/jqOBqp
 
 - Credit 404
 https://codepen.io/akashrajendra/pen/JKKRvQ
 
-- Static file tutorial
-https://code-maven.com/flask-serve-static-files
+- Original tutorial
+https://dev.to/sahilrajput/build-a-chatbot-using-flask-in-5-minutes-574i
 
-- Heroku Deployment tutorial
-https://www.youtube.com/watch?v=skc-ZEU9kO8
+- Used API (Weather)
+https://openweathermap.org

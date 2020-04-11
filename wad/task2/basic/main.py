@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, send_from_directory, make_response
+from flask import Flask, render_template, send_from_directory
+from flask import url_for, make_response
 from flask_sslify import SSLify as ssl
 
 app = Flask(__name__)
