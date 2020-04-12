@@ -27,6 +27,17 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 
 });
 
+$('.login').click(function(){
+  console.log('We love JS');
+  userEmail = $('.email-input').val()
+  userPass = $('.pwd-input').val()
+  $.get("/login", { userEmail: userEmail, userPass: userPass}).done(function(result) {
+    result = (document.baseURI+result);
+    window.location.replace(result);
+  });
+});
+
+
 $('.tab a').on('click', function (e) {
 
   e.preventDefault();
