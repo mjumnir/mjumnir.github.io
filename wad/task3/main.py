@@ -31,7 +31,7 @@ def custom_mj_not_found(error):
     """Page not found."""
     return make_response(render_template("404.html"), 404)
 
-#
+#Error page handling
 #
 # @app.errorhandler(400)
 # def bad_request():
