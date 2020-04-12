@@ -1,12 +1,36 @@
 var $messages = $('.messages-content'),
-    d, h, m,
-    i = 0;
+    d, h, m, i = 0;
+
+var wlcMsg = `Welcome to Snowden's Chatbot.
+              I can have a pet talk.
+              And also give you the meteo.
+              '/spb' For Saint Petersburg's temperature.
+              '/msk' For Moscow Temperature.
+              Other commands are pending..`
+
+function botMessage(start){
+
+  setTimeout(function() {
+    if ($('.message-input').val() != '') {
+      $('.message-input').val("");
+    }
+
+    $('<div class="message loading new"><figure class="avatar"><img src="https://pbs.twimg.com/profile_images/648888480974508032/66_cUYfj_400x400.jpg"/></figure><span></span></div>').appendTo($('.mCSB_container'));
+
+    updateScrollbar();
+
+    setTimeout(function() {
+      $('.message.loading').remove();
+      $('<div class="message new"><figure class="avatar"><img src="https://pbs.twimg.com/profile_images/648888480974508032/66_cUYfj_400x400.jpg" /></figure>' + start + '</div>').appendTo($('.mCSB_container')).addClass('new');
+      setDate();
+      updateScrollbar();
+    }, 1000 + (Math.random() * 20) * 100);
+  }, 1000);
+}
 
 $(window).load(function() {
-  $messages.mCustomScrollbar();
-  setTimeout(function() {
-    fakeMessage();
-  }, 100);
+    $messages.mCustomScrollbar();
+    botMessage(wlcMsg);
 });
 
 function updateScrollbar() {
@@ -25,61 +49,31 @@ function setDate(){
 }
 
 function insertMessage() {
-  msg = $('.message-input').val();
-  if ($.trim(msg) == '') {
-    return false;
-  }
-  $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-  setDate();
-  $('.message-input').val(null);
-  updateScrollbar();
-  setTimeout(function() {
-    fakeMessage();
-  }, 1000 + (Math.random() * 20) * 100);
+
+    userText = $('.message-input').val();
+    if ($.trim(userText) == '') {
+        return false;
+    }
+
+    $('<div class="message message-personal">' + userText + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    $('.message-input').val(null);
+    updateScrollbar();
+    getFlaskMsg(userText);
+
+}
+
+function getFlaskMsg(userText){
+    if (!userText){
+        return false;
+    }
+    $.get("/get", { msg: userText, count: i}).done(function(botText) {
+        botMessage(botText);
+        (i < 14 ? i++ : i = 0);
+    });
+    return true;
 }
 
 $('.message-submit').click(function() {
-  insertMessage();
-});
-
-$(window).on('keydown', function(e) {
-  if (e.which == 13) {
     insertMessage();
-    return false;
-  }
-})
-
-var Fake = [
-  'Hi there, I\'m Fabio and you?',
-  'Nice to meet you',
-  'How are you?',
-  'Not too bad, thanks',
-  'What do you do?',
-  'That\'s awesome',
-  'Codepen is a nice place to stay',
-  'I think you\'re a nice person',
-  'Why do you think that?',
-  'Can you explain?',
-  'Anyway I\'ve gotta go now',
-  'It was a pleasure chat with you',
-  'Time to make a new codepen',
-  'Bye',
-  ':)'
-]
-
-function fakeMessage() {
-  if ($('.message-input').val() != '') {
-    return false;
-  }
-  $('<div class="message loading new"><figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
-
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-    i++;
-  }, 1000 + (Math.random() * 20) * 100);
-
-}
+});

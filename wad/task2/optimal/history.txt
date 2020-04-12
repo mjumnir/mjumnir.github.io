@@ -1,0 +1,16 @@
+Apr 12 2020 07:45:14 Bot Salut
+Apr 12 2020 07:45:14 Bot Hi there, I'm Fabio and you?
+Apr 12 2020 07:56:04 User 1
+Apr 12 2020 07:56:04 Bot Nice to meet you
+Apr 12 2020 07:56:11 User 2
+Apr 12 2020 07:56:11 Bot How are you?
+Apr 12 2020 07:57:58 User 3
+Apr 12 2020 07:57:58 Bot Hi there, I'm Snowden and you?
+Apr 12 2020 07:58:19 User 4
+Apr 12 2020 07:58:19 Bot Hi there, I'm Snowden and you?
+Apr 12 2020 07:58:57 User 4
+Apr 12 2020 07:58:57 Bot Hi there, I'm Snowden and you?
+Apr 12 2020 07:59:56 User 34
+Apr 12 2020 07:59:56 Bot Hi there, I'm Snowden and you?
+Apr 12 2020 08:01:49 User 3
+Apr 12 2020 08:01:49 Bot Hi there, I'm Snowden and you?
