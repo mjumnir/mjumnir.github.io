@@ -1,20 +1,18 @@
-from flask import Flask, render_template, send_from_directory, make_response, request
+from flask import Flask, render_template, send_from_directory
+from flask import make_response, request
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from flask_sslify import SSLify as ssl
 from tokens import owm_token
-import json, re
+import json, re, os
 import datetime as d
-import os
 
 
 app = Flask(__name__)
 sslify = ssl(app)
 
 
-def save_history(data, user, filemane='history.txt'):
-    date = d.datetime.now().strftime("%b %d %Y %H:%M:%S")
-    data = date + ' ' + user + ' ' + data + '\n'
+def save_history(data, filemane='history.txt'):
     with open(filemane,"a") as fo:
         fo.write(data)
 
@@ -44,8 +42,8 @@ def get_meteo_data(city):
         data = json.loads(response.text)
         temp = data['main']['temp']
         write_json(data)
-        print(temp)
-        return str(temp - 273.15)
+        # print(temp)
+        return str(int(temp - 273.15))
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         print(e)
         return ''
@@ -82,11 +80,27 @@ def get_bot_responce(userText, count):
     else:
         result = Fake[int(count)]
 
-    save_history(userText, 'User')
-    save_history(result, 'Bot')
+    save_user_history(userText)
+    save_bot_history(result)
 
     return result
 
+
+def get_date():
+    c_date = d.datetime.now().strftime("%b %d %Y %H:%M:%S")
+    return c_date
+
+
+def save_bot_history(data):
+    date = get_date()
+    data = date + ' ' + 'Bot:' + ' ' + data + '\n'
+    save_history(data)
+
+
+def save_user_history(data):
+    date = get_date()
+    data = date + ' ' + 'User:' + ' ' + data + '\n'
+    save_history(data)
 
 @app.route('/', methods=['GET','POST'])
 def index():

@@ -17,6 +17,7 @@ a {
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
+
 a:hover {
   color: #179b77;
 }
@@ -35,11 +36,13 @@ a:hover {
   padding: 0;
   margin: 0 0 40px 0;
 }
+
 .tab-group:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .tab-group li a {
   display: block;
   text-decoration: none;
@@ -48,16 +51,18 @@ a:hover {
   color: #a0b3b0;
   font-size: 20px;
   float: left;
-  width: 50%;
+  width: 100%;
   text-align: center;
   cursor: pointer;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
+
 .tab-group li a:hover {
   background: #179b77;
   color: #ffffff;
 }
+
 .tab-group .active a {
   background: #1ab188;
   color: #ffffff;
@@ -84,8 +89,9 @@ label {
   transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
-  font-size: 22px;
+  font-size: 18px;
 }
+
 label .req {
   margin: 2px;
   color: #1ab188;
@@ -97,6 +103,7 @@ label.active {
   left: 2px;
   font-size: 14px;
 }
+
 label.active .req {
   opacity: 0;
 }
@@ -119,6 +126,7 @@ input, textarea {
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
+
 input:focus, textarea:focus {
   outline: 0;
   border-color: #1ab188;
@@ -144,6 +152,7 @@ textarea {
   width: 48%;
   margin-right: 4%;
 }
+
 .top-row > div:last-child {
   margin: 0;
 }
@@ -153,7 +162,7 @@ textarea {
   outline: none;
   border-radius: 0;
   padding: 15px 0;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -163,6 +172,7 @@ textarea {
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
+
 .button:hover, .button:focus {
   background: #179b77;
 }
