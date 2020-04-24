@@ -50,6 +50,7 @@ def get_meteo_data(city):
 
 
 def get_bot_responce(userText, count):
+    city = 'Saint Petersburg,ru'
     Fake = [
       'Hi there, I\'m Snowden and you?',
       'Nice to meet you',
@@ -74,9 +75,10 @@ def get_bot_responce(userText, count):
 
     if ticker:
         if ticker[0] == '/spb':
-            result = get_meteo_data('Saint Petersburg,ru')
+            city = 'Saint Petersburg,ru'
         elif ticker[0] == '/msk':
-            result = get_meteo_data('Moscow,ru')
+            city = 'Moscow,ru'
+        get_meteo_data(city)
     else:
         result = Fake[int(count)]
 
